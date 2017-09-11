@@ -79,4 +79,18 @@
     <!-- Server Client ID.  This should be a valid Web OAuth 2.0 Client ID obtained
          from https://console.developers.google.com/ -->
     <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
+    <string name="facebook_app_id">1426532370988174</string>
+
+    <string name="action_simple_login">With Simple Login Button</string>
+    <string name="action_custom_login">With Custom Login Button</string>
+
+    <string name="update_status">Update Status</string>
+    <string name="post_image">Post Image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_facebook">FacebookActivity</string>
+    <string name="title_activity_google_plus">GooglePlus</string>
+
+    <string name="configuration_error">Error: the value of WEB_CLIENT_ID or SERVER_BASE_URL is not  set correctly. This will cause errors when requesting a server auth code.</string>
 </resources>

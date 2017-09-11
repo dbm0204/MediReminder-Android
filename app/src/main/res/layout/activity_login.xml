@@ -69,9 +69,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="106dp"
             android:layout_alignParentBottom="true"
-            android:layout_weight="0.35"
             android:orientation="vertical">
 
             <com.google.android.gms.common.SignInButton
@@ -81,7 +80,14 @@
                 android:layout_centerInParent="true"
                 android:background="#87CEFA"
                 tools:visibility="visible" />
-
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp" />
+        </LinearLayout>
             <TextView
                 android:id="@+id/link_signup"
                 android:layout_width="fill_parent"
@@ -92,6 +98,5 @@
                 android:text="No account yet? Create one"
                 android:textColor="#000"
                 android:textSize="16dip" />
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>
