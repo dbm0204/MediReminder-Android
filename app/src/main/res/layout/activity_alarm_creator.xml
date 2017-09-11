@@ -1,0 +1,198 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".alarminfo"
+    android:padding ="@dimen/activity_horizontal_margin"
+
+
+    android:background="@android:color/transparent">
+
+
+    <TextView
+        android:id="@+id/TextViewTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/patient_name"
+        android:textSize="10pt"
+        android:textColor="#FF2B34FF"
+        android:textStyle="bold"
+        />
+
+
+    <EditText
+        android:id="@+id/EditTextName"
+        android:layout_height="wrap_content"
+        android:hint="@string/patient_name"
+        android:inputType="textPersonName"
+        android:layout_width="fill_parent"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/TextViewTitle"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/med_title"
+        android:id="@+id/medDetailsTextView"
+        android:textSize="10pt"
+        android:textColor="#FF2B34FF"
+        android:layout_marginTop="75dp"
+        android:layout_below="@+id/EditTextName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/med_name"
+        android:ems="10"
+        android:id="@+id/medNameText"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/medDetailsTextView"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/specialInstText"
+        android:hint="@string/special_inst"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/medNameText"
+        />
+
+    <TextView
+        android:id="@+id/ReminderLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"
+        android:text="@string/remind_title"
+        android:textColor="#FF2B34FF"
+        android:layout_below="@id/specialInstText"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/CheckBoxResponse"
+        android:layout_height="wrap_content"
+        android:text="Alarm on"
+        android:checked="true"
+        android:layout_width="fill_parent"
+        android:textColor="#FF2B34FF"
+        android:layout_below="@id/specialInstText"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/ReminderLabel"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/freqText"
+        android:text="@string/frequency"
+        android:textSize="8pt"
+
+        android:layout_below="@+id/startTime"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff51504e" />
+
+    <Spinner
+        android:id="@+id/SpinnerFeedbackType"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:entries="@array/frequencyList"
+        android:textColor="@color/abc_background_cache_hint_selector_material_light"
+        android:spinnerMode="dropdown"
+        android:paddingTop="8dp"
+        android:layout_below="@+id/startTimeTextView"
+        android:layout_alignLeft="@+id/startTime"
+        android:layout_alignStart="@+id/startTime" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startTimeTextView"
+        android:text="@string/start_time"
+        android:layout_below="@id/ReminderLabel"
+        android:textSize="8pt"
+        android:paddingTop="8dp"
+        android:textColor="#ff51504e" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="8"
+        android:id="@+id/startTime"
+        android:hint="@string/start_time"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/ReminderLabel"
+
+        android:layout_alignParentRight="true"
+        android:focusable="false"
+        />
+
+    <TextView
+        android:id="@+id/textView_dosage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Dosage"
+        android:textSize="10pt"
+        android:textColor="#FF2B34FF"
+        android:layout_below="@id/EditTextName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextDosage"
+        android:layout_below="@id/textView_dosage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/black"
+        android:hint="dosage" />
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/alarm_ringtone_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/SpinnerFeedbackType"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/alarm_label_tone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alarm_tone"
+            android:textSize="18sp"
+            android:paddingTop="8dp"
+            android:layout_weight="2"
+            android:textColor="#ff51504e" />
+
+        <TextView
+            android:id="@+id/alarm_label_tone_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/alarm_tone_default"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</RelativeLayout>

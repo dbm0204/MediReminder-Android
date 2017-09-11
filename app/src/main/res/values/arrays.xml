@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="frequencyList">
+		<item>@string/frequency1</item>
+		<item>@string/frequency2</item>
+		<item>@string/frequency3</item>
+		<item>@string/frequency4</item>
+	</string-array>
+
+
+
+</resources>

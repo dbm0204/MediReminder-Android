@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "969885438639",
+    "project_id": "firebase-medireminder"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969885438639:android:6c51b4339388a1b2",
+        "android_client_info": {
+          "package_name": "project.dbm0204.org.meditimer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969885438639-hktu5adc6fjt79p9p1ugfe7bf6mcrsp9.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "969885438639-ula4g6d0grcc0sue3iptepec56f7nl0n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "project.dbm0204.org.meditimer",
+            "certificate_hash": "c78b620b60a64deca437ea49ba4e813ef5d2e53f"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAMyqiUsv-M_v7oymoF_dhJ0lIh-nssrE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

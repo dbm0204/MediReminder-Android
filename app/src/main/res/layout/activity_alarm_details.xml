@@ -1,0 +1,205 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".AlarmDetails"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Patient Name"
+        android:textSize="10pt"
+        android:id="@+id/textView_PatientName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:autoText="true"
+        android:textColor="#FF2B34FF"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarmDetails_patientName"
+        android:layout_below="@+id/textView_PatientName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="patient_name"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Dosage"
+        android:textSize="10pt"
+        android:id="@+id/textView3_dosage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#FF2B34FF"
+        android:textStyle="bold"
+        android:layout_below="@+id/alarmDetails_patientName" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarmDetails_dosage"
+        android:text="dosage"
+        android:layout_below="@+id/textView3_dosage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/black" />
+
+    <EditText
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/alarmDetails_time"
+        android:text="time"
+        android:focusable="false"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="@string/frequency"
+        android:id="@+id/textView_repeat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/alarmDetails_time"
+        android:textStyle="normal"
+        android:textColor="#ff6f6f6f" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarmdetails_repeat_spinner"
+        android:entries="@array/frequencyList"
+        android:spinnerMode="dropdown"
+        android:layout_toRightOf="@id/textView_repeat"
+        android:textColor="@color/abc_background_cache_hint_selector_material_light"
+        android:layout_below="@+id/alarmDetails_time" />
+
+
+
+    <LinearLayout
+        android:id="@+id/alarm_ringtone_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textView_repeat"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/alarm_label_tone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alarm_tone"
+            android:textSize="8pt"
+            android:paddingTop="8dp"
+            android:layout_weight="2"
+            android:textColor="#ff6f6f6f" />
+
+        <TextView
+            android:id="@+id/alarm_label_tone_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/alarm_tone_default"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Medicine Information"
+        android:textSize="10pt"
+        android:id="@+id/textView_medicine"
+        android:textColor="#FF2B34FF"
+        android:textStyle="bold"
+        android:layout_below="@+id/alarmDetails_dosage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarmsDetails_medName"
+        android:text="medicine_name"
+        android:layout_below="@+id/textView_med_name"
+        android:layout_alignRight="@+id/alarmdetails_repeat_spinner"
+        android:layout_alignEnd="@+id/alarmdetails_repeat_spinner"
+        android:textColor="@android:color/black"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarmDetails_speInstruction"
+        android:text="instruction"
+        android:layout_below="@+id/textView_spe_instru"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Reminder Information"
+        android:textSize="10pt"
+        android:id="@+id/textView_reminderInfo"
+        android:textColor="#FF2B34FF"
+        android:textStyle="bold"
+        android:layout_below="@+id/alarmDetails_speInstruction"
+        android:layout_alignRight="@+id/alarmdetails_repeat_spinner"
+        android:layout_alignEnd="@+id/alarmdetails_repeat_spinner" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medicine"
+        android:textSize="8pt"
+        android:id="@+id/textView_med_name"
+        android:textColor="#ff6f6f6f"
+        android:layout_below="@+id/textView_medicine"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Special Instruction"
+        android:textSize="8pt"
+        android:id="@+id/textView_spe_instru"
+        android:textColor="#ff6f6f6f"
+        android:layout_below="@+id/alarmsDetails_medName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:textSize="8pt"
+        android:id="@+id/textView"
+        android:textColor="#ff6f6f6f"
+        android:textStyle="normal"
+        android:textIsSelectable="true"
+        android:layout_below="@+id/textView_reminderInfo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
