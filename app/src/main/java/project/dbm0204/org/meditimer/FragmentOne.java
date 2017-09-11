@@ -17,20 +17,15 @@ import butterknife.Unbinder;
  */
 public class FragmentOne extends Fragment {
 
-  @BindView(R.id.circleLayout) LinearLayout circleLayout;
-  private Unbinder unbinder;
 
-  @Override public View onCreateView(LayoutInflater inflater, ViewGroup containter,
-      Bundle savedInstanceState) {
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup containter, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_one, containter, false);
-    unbinder = ButterKnife.bind(this, view);
-    ((GradientDrawable) circleLayout.getBackground()).setColor(
-        getResources().getColor(R.color.material_blue));
     return view;
   }
 
-  @Override public void onDestroyView() {
+  @Override
+  public void onDestroyView() {
     super.onDestroyView();
-    unbinder.unbind();
   }
 }

@@ -23,7 +23,7 @@ import butterknife.Unbinder;
 import project.dbm0204.org.meditimer.R;
 
 /**
- * Created by Michal Bialas on 19/07/14
+ * Created by dbm0204 on 09/11/17
  */
 public class FragmentAbout extends Fragment {
 
@@ -52,8 +52,7 @@ public class FragmentAbout extends Fragment {
 
     Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
         Uri.fromParts("mailto", getString(R.string.user_email), null));
-    emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
-        getString(R.string.about_msg_subject));
+    emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,getString(R.string.about_msg_subject));
     try {
       startActivity(Intent.createChooser(emailIntent, getString(R.string.about_mail_chooser)));
     } catch (ActivityNotFoundException exception) {
