@@ -1,4 +1,30 @@
 <resources>
+
+    <string name="fragment_one">One</string>
+    <string name="fragment_two">Two</string>
+    <string name="fragment_three">Three</string>
+    <string name="fragment_about">About</string>
+    <string name="number1">I</string>
+    <string name="number2">II</string>
+    <string name="number3">III</string>
+    <string name="fragment">Fragment</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="user_name">Ben Mathew</string>
+    <string name="user_email">dbm0204@gmail.com</string>
+    <string name="content_description">image view</string>
+
+
+    <string name="about_text">This application is an example of a Navigation Drawer implementation using a new/bind pattern and the ButterKnife library.</string>
+    <string name="about_text2">It was written only for development purposes.</string>
+    <string name="about_author">Author: Ben Mathew</string>
+    <string name="about_contact">Contact: dbm0204@gmail.com</string>
+    <string name="about_libraries">Libraries:</string>
+    <string name="about_butterknife">ButterKnife by Jake Wharton</string>
+    <string name="about_robototextview">RobotoTextView by Evgeny Shishkin</string>
+    <string name="about_msg_subject">[NavigationDrawerSI]</string>
+    <string name="about_mail_chooser">Send with</string>
+    <string name="about_intent_failed">The requested application could not be launched.</string>
     <string name="app_name">MediAlarm</string>
     <string name="button_add">Add a Reminder</string>
     <string name="hello_world">Welcome to RxTimer!!</string>
@@ -61,13 +87,10 @@
     <string name="name_sign_in_activity">SignInActivity</string>
     <string name="desc_sign_in_activity">Signing in, signing out, and revoking access.</string>
     <string name="desc_sign_in_activity_scopes">Signing in, signing out, and revoking access with Google Drive permissions.</string>
-
     <string name="name_id_token_activity">IdTokenActivity</string>
     <string name="desc_id_token_activity">Retrieving an ID Token for the user.</string>
-
     <string name="desc_auth_code_activity">Demonstrate retrieving an auth code for authorizing your server.</string>
     <string name="name_auth_code_activity">ServerAuthCodeActivity</string>
-
     <string name="desc_rest_activity">Demonstrate using Google Sign In with a Google REST API</string>
     <string name="name_rest_activity">RestApiActivity</string>
 
@@ -91,6 +114,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_facebook">FacebookActivity</string>
     <string name="title_activity_google_plus">GooglePlus</string>
-
     <string name="configuration_error">Error: the value of WEB_CLIENT_ID or SERVER_BASE_URL is not  set correctly. This will cause errors when requesting a server auth code.</string>
 </resources>
