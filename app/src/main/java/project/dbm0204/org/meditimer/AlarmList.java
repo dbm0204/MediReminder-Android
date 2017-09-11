@@ -1,14 +1,24 @@
 package project.dbm0204.org.meditimer;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnItemClick;
+import java.util.ArrayList;
 import java.util.List;
+import timber.log.Timber;
 
 /**
  *    This class has list of reminder and contain option to add new reminder
@@ -17,21 +27,60 @@ import java.util.List;
 
 
 public class AlarmList extends ActionBarActivity {
+    private static final String STATE_SELECTED_POSITION ="selected_navigation_drawer_position";
+    private int currentSelectedPosition =0;
     private AlarmListAdapter mAdapter;
     private AlarmDBHelper helper = new AlarmDBHelper(this);
     public final static int SAVED = 1;
     public final static int SAVED_SETTINGS=2;
     private Context mContext;
-
-    /**
-     * This method initialize activity
-     * @param savedInstanceState Bundle - most recently supplied data
-     */
+    @BindView(R.id.navigationDrawerListViewWrapper) NavigationDrawerView mNavigationDrawerListViewWrapper;
+    @BindView(R.id.linearDrawer) LinearLayout mLinearDrawerLayout;
+    @BindView(R.id.drawerlayout) DrawerLayout mDrawerLayout;
+    @BindView(R.id.leftDrawerListView) ListView leftDrawerListView;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private CharSequence mTitle;
+    private CharSequence mDrawerTitle;
+    private List<NavigationDrawerItem> navigationItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_list);
+        ButterKnife.bind(this);
+        mTitle = mDrawerTitle = getTitle();
+        getSupportActionBar().setIcon(R.drawable.ic_action_ab_transparent);
+        Timber.tag("LifeCycles");
+        Timber.d("Activity Created");
+        if(savedInstanceState==null){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.contentFrame, Fragment.instantiate(AlarmList.this, Fragments.ONE.getFragment()))
+                    .commit();
+            } else {
+            currentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
+        }
+        navigationItems = new ArrayList<>();
+        navigationItems.add(new NavigationDrawerItem(getString(R.string.fragment_one),true));
+        navigationItems.add(new NavigationDrawerItem(getString(R.string.fragment_two),true));
+        navigationItems.add(new NavigationDrawerItem(getString(R.string.fragment_three),true));
+        navigationItems.add(new NavigationDrawerItem(getString(R.string.fragment_about), R.drawable.ic_action_about, false));
+        mNavigationDrawerListViewWrapper.replaceWith(navigationItems);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_navigation_drawer,R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                supportInvalidateOptionsMenu();
+            }
+            public void onDrawerOpened(View drawerView){
+                super.onDrawerOpened(drawerView);
+                getSupportActionBar().setTitle(mTitle);
+                supportInvalidateOptionsMenu();
+            }
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        selectItem(currentSelectedPosition);
+
         mContext = this;
         ListView lv = (ListView) findViewById(android.R.id.list);
 
@@ -43,24 +92,15 @@ public class AlarmList extends ActionBarActivity {
         lv.setAdapter(mAdapter);
     }
 
-    /**
-     * This method Initialize the contents of the Activity's standard options menu
-     * @param menu to place item
-     * @return true if menu to be displayed
-     */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_alarm_list, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
-    /**
-     * This method is call when Item from the menu is selected
-     * @param item menu item that was selected
-     * @return true
-     */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -81,8 +121,12 @@ public class AlarmList extends ActionBarActivity {
                 startActivityForResult(intent,SAVED_SETTINGS);
                 return true;
         }
-
-        return true;
+        if(mDrawerToggle.onOptionsItemSelected(item)){
+            return true;
+        } else if(item.getItemId()==R.id.action_settings){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -121,5 +165,75 @@ public class AlarmList extends ActionBarActivity {
         helper.updateAlarm(model);
 
         AlarmManagerHelper.setAlarms(this);
+    }
+
+    public void onSavedInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt(STATE_SELECTED_POSITION, currentSelectedPosition);
+    }
+    @Override
+    public void onPostCreate(Bundle savedInstanceState){
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+   @OnItemClick(R.id.leftDrawerListView) public void OnItemClick(int position,long id){
+       if(mDrawerLayout.isDrawerOpen(mDrawerLayout)){
+           mDrawerLayout.closeDrawer(mLinearDrawerLayout);
+           onNavigationDrawerItemSelected(position);
+           selectItem(position);
+       }
+   }
+   private void selectItem(int position){
+       if(leftDrawerListView!=null){
+           leftDrawerListView.setItemChecked(position,true);
+           navigationItems.get(currentSelectedPosition).setSelected(false);
+           navigationItems.get(position).setSelected(true);
+           currentSelectedPosition=position;
+           getSupportActionBar().setTitle(navigationItems.get(currentSelectedPosition).getItemName());
+       }
+       if(mLinearDrawerLayout!=null){
+           mDrawerLayout.closeDrawer(mLinearDrawerLayout);
+       }
+   }
+   @SuppressLint("RestrictedApi")
+    private void onNavigationDrawerItemSelected(int position) {
+        switch (position) {
+            case 0:
+                if (!(getSupportFragmentManager().getFragments().get(0) instanceof FragmentOne)) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.contentFrame,
+                                    Fragment.instantiate(AlarmList.this, Fragments.ONE.getFragment()))
+                            .commit();
+                }
+                break;
+            case 1:
+                if (!(getSupportFragmentManager().getFragments().get(0) instanceof FragmentTwo)) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.contentFrame,Fragment.instantiate(AlarmList.this, Fragments.TWO.getFragment()))
+                            .commit();
+                }
+                break;
+            case 2:
+                if (!(getSupportFragmentManager().getFragments().get(0) instanceof FragmentThree)) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.contentFrame,Fragment.instantiate(AlarmList.this, Fragments.THREE.getFragment()))
+                            .commit();
+                }
+                break;
+            case 3:
+                if (!(getSupportFragmentManager().getFragments().get(0) instanceof FragmentAbout)) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.contentFrame,Fragment.instantiate(AlarmList.this, Fragments.ABOUT.getFragment()))
+                            .commit();
+                }
+                break;
+        }
     }
 }

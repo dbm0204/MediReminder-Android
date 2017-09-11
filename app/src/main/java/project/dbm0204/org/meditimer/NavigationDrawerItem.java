@@ -1,54 +1,57 @@
 package project.dbm0204.org.meditimer;
 
 /**
- * Created by dbm0204 on 9/11/17.
+ * Created by dbm0204 on 09/11/17.
  */
-
 public class NavigationDrawerItem {
-    private String itemName;
-    private int itemIcon;
-    private boolean mainItem;
-    private boolean selected;
 
-    public NavigationDrawerItem(String itemName, int itemIcon, boolean mainItem) {
-        this.itemName = itemName;
-        this.itemIcon = itemIcon;
-        this.mainItem = mainItem;
-    }
+  private String itemName;
 
-    public NavigationDrawerItem(String itemName, boolean mainItem) {
-        this(itemName,0,mainItem);
-    }
+  private int itemIcon;
 
-    public String getItemName() {
-        return itemName;
-    }
+  private boolean mainItem;
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
+  private boolean selected;
 
-    public int getItemIcon() {
-        return itemIcon;
-    }
+  public NavigationDrawerItem(String itemName, int itemIcon, boolean mainItem) {
+    this.itemName = itemName;
+    this.itemIcon = itemIcon;
+    this.mainItem = mainItem;
+  }
 
-    public void setItemIcon(int itemIcon) {
-        this.itemIcon = itemIcon;
-    }
+  public NavigationDrawerItem(String itemName, boolean mainItem) {
+    this(itemName, 0, mainItem);
+  }
 
-    public boolean isMainItem() {
-        return mainItem;
-    }
+  public String getItemName() {
+    return itemName;
+  }
 
-    public void setMainItem(boolean mainItem) {
-        this.mainItem = mainItem;
-    }
+  public void setItemName(String itemName) {
+    this.itemName = itemName;
+  }
 
-    public boolean isSelected() {
-        return selected;
-    }
+  public int getItemIcon() {
+    return itemIcon;
+  }
 
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
+  public void setItemIcon(int itemIcon) {
+    this.itemIcon = itemIcon;
+  }
+
+  public boolean isMainItem() {
+    return mainItem;
+  }
+
+  public void setMainItem(boolean mainItem) {
+    this.mainItem = mainItem;
+  }
+
+  public boolean isSelected() {
+    return selected;
+  }
+
+  public void setSelected(boolean selected) {
+    this.selected = selected;
+  }
 }

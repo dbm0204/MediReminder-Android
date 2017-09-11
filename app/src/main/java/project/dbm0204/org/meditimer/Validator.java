@@ -11,12 +11,9 @@ import android.widget.EditText;
  *
  */
 public class Validator extends ActionBarActivity {
-
     public Validator() {
 
     }
-
-
     public boolean isValid() {
         EditText patient = (EditText) findViewById(R.id.EditTextName);
         EditText medicine = (EditText) findViewById(R.id.medNameText);

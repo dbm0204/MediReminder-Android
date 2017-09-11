@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<mmbialas.pl.navigationdrawersi.ui.navigationdrawer.NavigationDrawerItemView
+<project.dbm0204.org.meditimerNavigationDrawerItemView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:padding="@dimen/default_small_padding"
     android:id="@+id/itemRR"
-    android:background="@drawable/navigation_drawer_list_item_bg"
-    >
+    android:background="@drawable/navigation_drawer_list_item_bg">
 
   <ImageView
       android:id="@+id/navigationDrawerItemIconIV"
@@ -31,4 +30,4 @@
       android:layout_toRightOf="@+id/navigationDrawerItemIconIV"
       android:text="@string/app_name"
       />
-</mmbialas.pl.navigationdrawersi.ui.navigationdrawer.NavigationDrawerItemView>
+</project.dbm0204.org.meditimerNavigationDrawerItemView>
