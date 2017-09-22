@@ -21,6 +21,7 @@ public class FragmentOne extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup containter, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_one, containter, false);
+
     return view;
   }
 

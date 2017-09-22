@@ -1,9 +1,7 @@
 package project.dbm0204.org.meditimer;
 
 import android.support.v4.app.Fragment;
-/**
- * Created by Michal Bialas on 19/07/14.
- */
+
 public enum Fragments {
 
   ONE(FragmentOne.class), TWO(FragmentTwo.class), THREE(FragmentThree.class), ABOUT(
